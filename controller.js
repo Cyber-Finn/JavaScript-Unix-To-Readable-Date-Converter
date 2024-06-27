@@ -15,10 +15,10 @@ function CalculateReadableDateFromUnix()
     const month = date.getMonth() + 1; // Months are zero-based (January is 0, this allows us to use an array to convert the number to the name)
     const year = date.getFullYear();
     const hours = date.getHours();
-    const minutes = "0" + date.getMinutes(); // Add leading zero if needed
-    const seconds = "0" + date.getSeconds(); // Add leading zero if needed
+    const minutes = date.getMinutes(); 
+    const seconds = date.getSeconds(); 
 
-    let formattedTime = `${day}/${monthNames[month]}/${year} ${hours}:${minutes.substring(-2)}:${seconds.substring(-2)}`;
+    let formattedTime = `${day}/${monthNames[month]}/${year} ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 
     output.innerText = formattedTime;
 }
